@@ -4,6 +4,58 @@ Arquitectura Web
 Este repositorio fue creado para contener los desarrollos implementados en la asignatura. 
 En particular servirá para almacenar la documentación y el código fuente de una API RESTful.
 
+En el proyecto se utilizaron las siguientes dependencias:
+
+* express 
+* express-validator: Para middleware de validación
+* morgan: Para logueo de información (Métodos http ejecutados)
+* mysql: Para persistencia de datos
+* nodemon: Para guardar cambios y recargar sitio automáticamente para desarrollo
+* dotenv: Para trabaja con variables de ambiente.
+
+La estructura de directorios utliizada es la siguiente
+
+* scr
+  _ data
+  _ modules
+    - asegurados
+       > controlador.js: Funciones controladores de las rutas configuradas para el módulo.
+       > index.js: Módulos requeridos e inyección de módulo de datos al controlador.
+       > middleware.js: Validación para la creación.
+       > rutas.js: Rutas definidas para el módulo.
+    - emision
+       > Idem módulo asegudados
+    - productores
+       > Idem módulo asegudados
+    - reportes
+       > Idem módulo asegudados
+    - riesgos
+       > Idem módulo asegudados
+    - secciones
+       > Idem módulo asegudados
+    - tarifas
+       > Idem módulo asegudados
+    - tipoEndosos
+       > Idem módulo asegudados
+    - usuarios
+       > Idem módulo asegudados
+    - util
+       > errores.js: Función para formatear la salida de error
+       > respuestas.js: Funciones para dar respuesta exitosa o error.
+       > validateHelper.js: Módulos requeridos para validación de middleware.
+
+  _ util
+    - errores.js
+    - respuestas.js
+    - validateHelper.js
+
+  _ app.js: Configuración de la aplicación: Módulos requeridos y rutas configuradas.
+  _ config.js: Se configura el servidor de base de datos desde las variables de entorno.
+  _ index.js: Inicio de la aplicación.
+  _ .env: Variales de ambiente.
+
+
+
 -------------
 
 # Emisión de pólizas Vida
