@@ -47,9 +47,64 @@ En particular servirá para almacenar la documentación y el código fuente de u
     "body": "Item actualizado correctamente"
   }
 
+  DELETE /api/v1/asegurados/9
+
+  Respuesta
+  {
+    "error": false,
+    "status": 200,
+    "body": "Item borrado correctamente!"
+  }
+
   
 - ABM Productor: Recibe Json con información de un Productor
 
+  GET /api/v1/productores
+
+  POST /api/v1/productores
+
+  {
+    "id": 0,
+    "apellido": "Galván",
+    "nombre": "Horacio",
+    "matricula": "1000356",
+    "cod_postal": 8118
+  }
+
+  Respuesta
+
+  {
+    "error": false,
+    "status": 201,
+    "body": "Item guardado correctamente"
+  }
+
+  PUT /api/v1/productores
+  {
+    "id": 8,
+    "apellido": "Galván",
+    "nombre": "Horacio",
+    "matricula": "1000356",
+    "cod_postal": 8000
+  }
+
+  Respuesta
+  {
+    "error": false,
+    "status": 201,
+    "body": "Item actualizado correctamente"
+  }
+
+  DELETE /api/v1/productores/8
+
+  Respuesta
+  {
+    "error": false,
+    "status": 200,
+    "body": "Item borrado correctamente!"
+  }  
+
+  
 ### Emisión
 
 - Alta Póliza: Recibe Json con información para generar un nueva póliza
