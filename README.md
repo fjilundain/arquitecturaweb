@@ -4,6 +4,10 @@ Arquitectura Web
 Este repositorio fue creado para contener los desarrollos implementados en la asignatura. 
 En particular servirá para almacenar la documentación y el código fuente de una API RESTful.
 
+
+# Emisión de pólizas Vida
+
+
 En el proyecto se utilizaron las siguientes dependencias:
 
 * express 
@@ -57,8 +61,6 @@ La estructura de directorios utliizada es la siguiente
 
 
 -------------
-
-# Emisión de pólizas Vida
 
 ### Titulares
 
