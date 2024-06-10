@@ -6,7 +6,7 @@ En particular servirá para almacenar la documentación y el código fuente de u
 
 -------------
 
-# Emisión de pólizas Automotor
+# Emisión de pólizas Vida
 
 ### Titulares
 
@@ -21,12 +21,39 @@ En particular servirá para almacenar la documentación y el código fuente de u
 
 ### Tablas Paramétricas
 
-- ABM Autos: Recibe Json con información de un Automóvil
-- ABM Productos: Recibe Json con información de un Producto de Seguro
-- ABM Coberturas (Incluye Tarifa): : Recibe Json con información de una cobertura de Seguro.
+- ABM Riesgos: Recibe Json con información de un Riesgo de Seguro
 
-### Servicios
-- Actualización Coberturas: Recibe Json con nuevas tarifas para aplicar a las coberturas. (Periódico, puede ser mensual, bimestral, etc.)
-- Actualización Sumas Aseguradas: Recibe Json con información de las nuevas sumas aseguradas de los automóviles (Mensual)
-- Reporte prima mensual: Recibe Json para filtrar la información del Json con prima mensual a retornar al cliente.
+  GET /api/v1/riesgos
+
+  POST /api/v1/riesgos
+    {
+      "id": 0,
+      "cod_seccion": "04",
+      "codigo": "04.01",
+      "descripcion": "Automotor General",
+      "importe_fijo": 0,
+      "activo": 1
+    }
+
+    Respuesta
+    {
+      "error": false,
+      "status": 201,
+      "body": "Item guardado correctamente"
+    }
+
+ 
+- ABM Tarifas: Recibe Json con información de una tarifa para un riesgo de Seguro.
+
+
+### Reportes
+
+- Importe de prima de productores entre fechas: Recibe parámetros de consulta para filtrar la información de prima entre fechas a retornar al cliente.
+
+  GET /api/v1/reportes/productores?fec_desde=2024-06-01&fec_hasta=2024-06-30
+
+- Reporte prima por productor entre fechas: Recibe id de productor en url y parámetros de consulta para filtrar la información de prima entre fechas a retornar al cliente.
+
+  GET /api/v1/reportes/productores/7?fec_desde=2024-06-01&fec_hasta=2024-06-30
+
 
