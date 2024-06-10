@@ -11,6 +11,43 @@ En particular servirá para almacenar la documentación y el código fuente de u
 ### Titulares
 
 - ABM Asegurado: Recibe Json con información de un Asegurado
+
+  GET /api/v1/asegurados
+
+  POST /api/v1/asegurados
+  {
+    "id": 0,
+    "apellido": "Aimar",
+    "nombre": "José",
+    "tipo_doc": "DNI",
+    "nro_doc": "14452354",
+    "cod_postal": 8000
+  }
+  Respuesta
+  {
+    "error": false,
+    "status": 201,
+    "body": "Item guardado correctamente"
+  }
+
+  PUT /api/v1/asegurados
+  {
+    "id": 8,
+    "apellido": "Aimar",
+    "nombre": "José",
+    "tipo_doc": "DNI",
+    "nro_doc": "14452354",
+    "cod_postal": 8118
+  }
+
+  Respuesta
+  {
+    "error": false,
+    "status": 201,
+    "body": "Item actualizado correctamente"
+  }
+
+  
 - ABM Productor: Recibe Json con información de un Productor
 
 ### Emisión
@@ -26,21 +63,21 @@ En particular servirá para almacenar la documentación y el código fuente de u
   GET /api/v1/riesgos
 
   POST /api/v1/riesgos
-    {
-      "id": 0,
-      "cod_seccion": "04",
-      "codigo": "04.01",
-      "descripcion": "Automotor General",
-      "importe_fijo": 0,
-      "activo": 1
-    }
+  {
+    "id": 0,
+    "cod_seccion": "04",
+    "codigo": "04.01",
+    "descripcion": "Automotor General",
+    "importe_fijo": 0,
+    "activo": 1
+  }
 
-    Respuesta
-    {
-      "error": false,
-      "status": 201,
-      "body": "Item guardado correctamente"
-    }
+  Respuesta
+  {
+    "error": false,
+    "status": 201,
+    "body": "Item guardado correctamente"
+  }
 
  
 - ABM Tarifas: Recibe Json con información de una tarifa para un riesgo de Seguro.
