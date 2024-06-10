@@ -1,0 +1,24 @@
+{
+  "name": "polizas-nodejs-api",
+  "version": "1.0.0",
+  "description": "Arquitectura Web - Pólizas API Restful",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js"
+  },
+  "keywords": [
+    "node js"
+  ],
+  "author": "Fernando Javier Ilundain",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "express-validator": "^7.1.0",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
+    "nodemon": "^3.1.3"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.5"
+  }
+}
