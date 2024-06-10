@@ -146,12 +146,89 @@ En particular servirá para almacenar la documentación y el código fuente de u
     "body": "Item borrado correctamente!"
   }
 
+  DELETE /api/v1/emision/4
+
+  Respuesta
+
+  {
+    "error": false,
+    "status": 200,
+    "body": "Item borrado correctamente!"
+  }
+
+  
   
 ### Emisión
 
-- Alta Póliza: Recibe Json con información para generar un nueva póliza
-- Alta Endoso: Recibe Json con información para generar un endoso de póliza
-- Alta Anulación: : Recibe Json con información para anular una póliza
+- ABM Póliza y endosos: Recibe Json con información para generar un nueva póliza y endosos de actualización y/o anulación
+
+  GET /api/v1/emision 
+
+  POST /api/v1/emision 
+  {
+    "id": 0,
+    "cod_seccion": "19",
+    "cod_riesgo": "19.01",
+    "cod_tipo_endoso": "POLIZA",
+    "numero": 10003,
+    "serie": 0,
+    "fec_emision": "2024-06-10",
+    "fec_ini_vig": "2024-06-19",
+    "fec_fin_vig": "2025-06-19",
+    "cod_asegurado": 8,
+    "cod_productor": 7,
+    "porc_com_prod": 0,
+    "impo_com_prod": 0,
+    "impo_suma_aseg": 5000000,
+    "porc_tasa_anual": 0.023,
+    "impo_prima": 9452.05,
+    "porc_iva": 21,
+    "impo_iva": 1984.93,
+    "impo_premio": 11436.98,
+    "cod_usuario": 6
+  }
+
+  Respuesta
+
+  {
+    "error": false,
+    "status": 201,
+    "body": "Item guardado correctamente"
+  }
+  
+  PUT /api/v1/emision
+  {
+    "id": 4,
+    "cod_seccion": "19",
+    "cod_riesgo": "19.01",
+    "cod_tipo_endoso": "POLIZA",
+    "numero": 10003,
+    "serie": 0,
+    "fec_emision": "2024-06-10",
+    "fec_ini_vig": "2024-06-19",
+    "fec_fin_vig": "2025-06-19",
+    "cod_asegurado": 8,
+    "cod_productor": 7,
+    "porc_com_prod": 0,
+    "impo_com_prod": 0,
+    "impo_suma_aseg": 5000000,
+    "porc_tasa_anual": 0.023,
+    "impo_prima": 9452.05,
+    "porc_iva": 21,
+    "impo_iva": 1984.93,
+    "impo_premio": 11436.98,
+    "cod_usuario": 7 
+  }
+
+  Respuesta
+
+  {
+    "error": false,
+    "status": 201,
+    "body": "Item actualizado correctamente"
+  }
+
+  
 
 ### Tablas Paramétricas
 
