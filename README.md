@@ -104,6 +104,48 @@ En particular servirá para almacenar la documentación y el código fuente de u
     "body": "Item borrado correctamente!"
   }  
 
+- ABM Usuarios: Recibe Json con información de un Usuario
+
+  GET /api/v1/usuarios
+
+  POST /api/v1/usuarios
+  {
+    "id": 0,
+    "nombre": "admin",
+    "usuario": "admin123",
+    "activo": 1
+  }
+  Respuesta
+  {
+    "error": false,
+    "status": 201,
+    "body": "Item guardado correctamente"
+  }
+
+  PUT /api/v1/usuarios
+  {
+    "id": 8,
+    "nombre": "admin",
+    "usuario": "admin@123.",
+    "activo": 1
+  }
+
+  Respuesta
+  {
+    "error": false,
+    "status": 201,
+    "body": "Item actualizado correctamente"
+  }
+
+  DELETE /api/v1/usuarios/8
+
+  Respuesta
+  {
+    "error": false,
+    "status": 200,
+    "body": "Item borrado correctamente!"
+  }
+
   
 ### Emisión
 
