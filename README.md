@@ -146,17 +146,7 @@ En particular servirá para almacenar la documentación y el código fuente de u
     "body": "Item borrado correctamente!"
   }
 
-  DELETE /api/v1/emision/4
-
-  Respuesta
-
-  {
-    "error": false,
-    "status": 200,
-    "body": "Item borrado correctamente!"
-  }
-
-  
+ 
   
 ### Emisión
 
@@ -228,9 +218,63 @@ En particular servirá para almacenar la documentación y el código fuente de u
     "body": "Item actualizado correctamente"
   }
 
+  DELETE /api/v1/emision/4
+
+  Respuesta
+
+  {
+    "error": false,
+    "status": 200,
+    "body": "Item borrado correctamente!"
+  }
   
 
 ### Tablas Paramétricas
+
+- ABM Secciones: Recibe Json con información de una Sección de Seguro
+
+  GET /api/v1/secciones
+
+  POST /api/v1/secciones
+  {
+    "id": 0,
+    "codigo": "14",
+    "descripcion": "Motovehículos",
+    "activo": 1
+  }
+
+  Respuesta
+  {
+    "error": false,
+    "status": 201,
+    "body": "Item guardado correctamente"
+  }
+
+  PUT /api/v1/secciones
+  {
+    "id": 4,
+    "codigo": "14",
+    "descripcion": "Motovehículos y otros",
+    "activo": 1
+  }
+
+  Respuesta
+  {
+    "error": false,
+    "status": 201,
+    "body": "Item atualizado correctamente"
+  }  
+
+  DELETE /api/v1/secciones/4
+
+  Respuesta
+
+  {
+    "error": false,
+    "status": 200,
+    "body": "Item borrado correctamente!"
+  }
+
 
 - ABM Riesgos: Recibe Json con información de un Riesgo de Seguro
 
@@ -253,6 +297,33 @@ En particular servirá para almacenar la documentación y el código fuente de u
     "body": "Item guardado correctamente"
   }
 
+  PUT /api/v1/riesgos
+  {
+    "id": 4,
+    "cod_seccion": "04",
+    "codigo": "04.01",
+    "descripcion": "Automotor General Republica Argentina",
+    "importe_fijo": 0,
+    "activo": 1
+  }
+
+  Respuesta
+  {
+    "error": false,
+    "status": 201,
+    "body": "Item atualizado correctamente"
+  }  
+
+  DELETE /api/v1/riesgos/4
+
+  Respuesta
+
+  {
+    "error": false,
+    "status": 200,
+    "body": "Item borrado correctamente!"
+  }
+  
  
 - ABM Tarifas: Recibe Json con información de una tarifa para un riesgo de Seguro.
 
