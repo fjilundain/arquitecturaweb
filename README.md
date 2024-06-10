@@ -470,4 +470,24 @@ En particular servirá para almacenar la documentación y el código fuente de u
 
   GET /api/v1/reportes/productores/7?fec_desde=2024-06-01&fec_hasta=2024-06-30
 
+  Respuesta
+
+  {
+    "error": false,
+    "status": 200,
+    "body": [
+      {
+        "cod_productor": 7,
+        "nom_prod": "Sanchez, Hernán",
+        "cod_tipo_endoso": "POLIZA",
+        "cantidad": 1,
+        "impo_comision": 0,
+        "impo_prima": 9452.05
+      }
+    ]
+  }
+
+
+
+
 
