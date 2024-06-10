@@ -540,6 +540,111 @@ La estructura de directorios utliizada es la siguiente
   }
 
 
+### Base de datos
+
+La base de datos fue creada con mysql:
+
+CREATE TABLE `asegurado` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `apellido` varchar(100) DEFAULT NULL,
+  `nombre` varchar(100) DEFAULT NULL,
+  `tipo_doc` varchar(4) DEFAULT NULL,
+  `nro_doc` varchar(11) DEFAULT NULL,
+  `cod_postal` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='asegurado';
+
+CREATE TABLE `poliza` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `cod_seccion` varchar(2) NOT NULL,
+  `cod_riesgo` varchar(20) NOT NULL,
+  `cod_tipo_endoso` varchar(10) NOT NULL,
+  `numero` int NOT NULL,
+  `serie` int NOT NULL,
+  `fec_emision` date NOT NULL,
+  `fec_ini_vig` date NOT NULL,
+  `fec_fin_vig` date NOT NULL,
+  `cod_asegurado` int NOT NULL,
+  `cod_productor` int NOT NULL,
+  `porc_com_prod` decimal(14,2) DEFAULT '0.00',
+  `impo_com_prod` decimal(14,2) DEFAULT '0.00',
+  `impo_suma_aseg` decimal(14,2) NOT NULL,
+  `porc_tasa_anual` decimal(8,4) NOT NULL,
+  `impo_prima` decimal(14,2) NOT NULL,
+  `porc_iva` decimal(14,2) NOT NULL,
+  `impo_iva` decimal(14,2) NOT NULL,
+  `impo_premio` decimal(14,2) NOT NULL,
+  `cod_usuario` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UC_Tipo_Endoso` (`cod_seccion`,`numero`,`serie`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='poliza';
+
+CREATE TABLE `productor` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `apellido` varchar(100) DEFAULT NULL,
+  `nombre` varchar(100) DEFAULT NULL,
+  `matricula` varchar(10) DEFAULT NULL,
+  `cod_postal` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='productor';
+
+CREATE TABLE `riesgo` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `cod_seccion` varchar(2) DEFAULT NULL,
+  `codigo` varchar(20) DEFAULT NULL,
+  `descripcion` varchar(50) DEFAULT NULL,
+  `importe_fijo` decimal(14,2) DEFAULT '0.00',
+  `activo` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='riesgo';
+
+CREATE TABLE `seccion` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `codigo` varchar(2) DEFAULT NULL,
+  `descripcion` varchar(20) DEFAULT NULL,
+  `activo` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='seccion';
+
+CREATE TABLE `tarifa_cab` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `cod_seccion` varchar(2) DEFAULT NULL,
+  `cod_riesgo` varchar(20) DEFAULT NULL,
+  `descripcion` varchar(50) DEFAULT NULL,
+  `fec_desde` date DEFAULT NULL,
+  `fec_hasta` date DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='tarifa_cab';
+
+CREATE TABLE `tarifa_det` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `tarifa_id` int NOT NULL,
+  `edad_desde` int NOT NULL,
+  `edad_hasta` int NOT NULL,
+  `suma_aseg_desde` decimal(14,2) NOT NULL,
+  `suma_aseg_hasta` decimal(14,2) NOT NULL,
+  `tasa_anual` decimal(8,4) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='tarifa_det';
+
+CREATE TABLE `tipo_endoso` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `cod_seccion` varchar(2) NOT NULL,
+  `codigo` varchar(10) NOT NULL,
+  `descripcion` varchar(50) DEFAULT NULL,
+  `fec_desde` date DEFAULT NULL,
+  `fec_hasta` date DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UC_Tipo_Endoso` (`cod_seccion`,`codigo`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='tipo_endoso';
+
+CREATE TABLE `usuario` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(20) DEFAULT NULL,
+  `usuario` varchar(20) DEFAULT NULL,
+  `activo` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='usuario';
 
 
 
