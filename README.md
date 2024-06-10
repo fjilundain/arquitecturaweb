@@ -327,6 +327,113 @@ En particular servirá para almacenar la documentación y el código fuente de u
  
 - ABM Tarifas: Recibe Json con información de una tarifa para un riesgo de Seguro.
 
+  GET /api/v1/tarifas
+  GET /api/v1/tarifas/6
+  GET /api/v1/tarifas/6/items
+  GET /api/v1/tarifas/6/items/6
+  
+
+  POST /api/v1/tarifas 
+
+  {
+    "id": 0,
+    "cod_seccion": "14",
+    "cod_riesgo": "14.01",
+    "descripcion": "Tarifa Motovehículos y otros",
+    "fec_desde": "2024-01-01",
+    "fec_hasta": "2050-12-31"
+  }
+
+  Respuesta
+
+  {
+    "error": false,
+    "status": 201,
+    "body": "Item guardado correctamente"
+  }
+
+  POST /api/v1/tarifas/items
+
+  {
+    "id": 0,
+    "tarifa_id": 8,
+    "edad_desde": 0,
+    "edad_hasta": 30,
+    "suma_aseg_desde": 0,
+    "suma_aseg_hasta": 5000000,
+    "tasa_anual": 1.2
+  }
+
+  Respuesta
+
+  {
+    "error": false,
+    "status": 201,
+    "body": "Item guardado correctamente"
+  }
+  
+
+
+  PUT /api/v1/tarifas 
+  {
+    "id": 9,
+    "cod_seccion": "14",
+    "cod_riesgo": "14.01",
+    "descripcion": "Tarifa Motovehículos y otros",
+    "fec_desde": "2024-06-01",
+    "fec_hasta": "2050-12-31"
+  }
+
+  Respuesta
+
+  {
+    "error": false,
+    "status": 201,
+    "body": "Item actualizado correctamente"
+  }
+
+
+  PUT /api/v1/tarifas/items
+  {
+    "id": 19,
+    "tarifa_id": 8,
+    "edad_desde": 0,
+    "edad_hasta": 150,
+    "suma_aseg_desde": 0,
+    "suma_aseg_hasta": 5000000,
+    "tasa_anual": 1.2
+  }
+
+  Respuesta
+  
+  {
+    "error": false,
+    "status": 201,
+    "body": "Item actualizado correctamente"
+  }
+
+  DELETE /api/v1/tarifas/9
+
+  Respuesta
+
+  {
+    "error": false,
+    "status": 200,
+    "body": "Item borrado correctamente!"
+  }
+
+
+  DELETE /api/v1/tarifas/8/items/19
+
+  Respuesta
+
+  {
+    "error": false,
+    "status": 200,
+    "body": "Item borrado correctamente!"
+  }
+
+  
 
 ### Reportes
 
