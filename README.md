@@ -441,6 +441,31 @@ En particular servirá para almacenar la documentación y el código fuente de u
 
   GET /api/v1/reportes/productores?fec_desde=2024-06-01&fec_hasta=2024-06-30
 
+  Respuesta
+
+  {
+    "error": false,
+    "status": 200,
+    "body": [
+      {
+        "cod_productor": 8,
+        "nom_prod": "Gonzalez, Guillermo",
+        "cod_tipo_endoso": "POLIZA",
+        "cantidad": 2,
+        "impo_comision": 0,
+        "impo_prima": 37808.21
+      },
+      {
+        "cod_productor": 7,
+        "nom_prod": "Sanchez, Hernán",
+        "cod_tipo_endoso": "POLIZA",
+        "cantidad": 1,
+        "impo_comision": 0,
+        "impo_prima": 9452.05
+      }
+    ]
+  }  
+
 - Reporte prima por productor entre fechas: Recibe id de productor en url y parámetros de consulta para filtrar la información de prima entre fechas a retornar al cliente.
 
   GET /api/v1/reportes/productores/7?fec_desde=2024-06-01&fec_hasta=2024-06-30
